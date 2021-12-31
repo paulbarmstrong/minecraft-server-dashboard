@@ -24,7 +24,7 @@ class ServerStatus extends React.Component {
 									</div>
 									{
 										this.props.status === "Deprovisioned" ? (
-											<div class={"btn col s12 orange" + (this.props.requestedProvisioning ? " disabled" : "")} onClick={() => this.props.requestProvisioning()}>
+											<div class="btn col s12 orange" onClick={() => this.props.requestProvisioning()}>
 												Request Provisioning
 											</div>
 										) : (
