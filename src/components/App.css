@@ -1,0 +1,49 @@
+
+/* Default slider */
+
+input[type=range]::-webkit-slider-thumb {
+	background-color : #546E7A;
+}
+
+/* Slider for the loop layers */
+
+.loop-layer-slider::-webkit-slider-runnable-track {
+	background : transparent !important;
+	background-color : #ffffff !important;
+	outline-width : 0pt !important;
+	border-width : 0pt !important;
+}
+
+.loop-layer-slider::-webkit-slider-thumb {
+	background-color : #ffffff !important;
+}
+
+.loop-layer-slider {
+	border : 0px !important;
+}
+
+/* Other things */
+
+label {
+	color : #ffffff !important;
+}
+
+.btn-block {
+	width : 100%;
+	height : 100%;
+}
+
+.invisible {
+	position: absolute;
+	left: -9999px;
+}
+
+.top-bottom-pad {
+	padding-top : '10pt';
+	padding-bottom : '10pt';
+}
+
+.clickable {
+	cursor : pointer;
+	user-select : none;
+}
