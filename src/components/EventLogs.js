@@ -28,7 +28,7 @@ class EventLogs extends React.Component {
 				</thead>
 				<tbody>
 					{
-						this.state.events.map(event => 
+						this.state.events.reverse().map(event => 
 							<tr>
 								<td>{this.getDateString(new Date(event.timestamp))}</td>
 								<td>{event.message}</td>
