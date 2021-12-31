@@ -12,17 +12,12 @@ class App extends React.Component {
 		this.state = {
 			title: (Math.random() > 0.5 ? "BI GOOF" : "BIG OOF")
 		}
+		this.fetchData = this.fetchData.bind(this)
 	}
 
 	componentDidMount() {
-		fetch("https://hi2g7g24r4.execute-api.us-east-2.amazonaws.com/minecraftServerStatus")
-			.then(res => res.json())
-			.then(res => {
-				this.setState({
-					status: res.status,
-					players: res.currentPlayers
-				})
-			})
+		this.fetchData()
+		setInterval(this.fetchData, 10000)
 	}
 
 	render() {
@@ -58,6 +53,17 @@ class App extends React.Component {
 				</div>
 			</div>
 		);
+	}
+
+	fetchData() {
+		fetch("https://hi2g7g24r4.execute-api.us-east-2.amazonaws.com/minecraftServerStatus")
+		.then(res => res.json())
+		.then(res => {
+			this.setState({
+				status: res.status,
+				players: res.currentPlayers
+			})
+		})
 	}
 
 	requestProvisioning() {

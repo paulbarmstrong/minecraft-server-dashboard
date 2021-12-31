@@ -6,16 +6,12 @@ class EventLogs extends React.Component {
 		this.state = {
 			events: []
 		}
+		this.fetchData = this.fetchData.bind(this)
 	}
 	
 	componentDidMount() {
-		fetch("https://zm8ejl2w3m.execute-api.us-east-2.amazonaws.com/latestMinecraftServerEventLogs")
-			.then(res => res.json())
-			.then(res => {
-				this.setState({
-					events: res.events
-				})
-			})
+		this.fetchData()
+		setInterval(this.fetchData, 10000)
 	}
 
 	render() {
@@ -29,7 +25,7 @@ class EventLogs extends React.Component {
 				</thead>
 				<tbody>
 					{
-						this.state.events.reverse().map(event => 
+						this.state.events.map(event => 
 							<tr>
 								<td>{this.getDateString(new Date(event.timestamp))}</td>
 								<td>{event.message}</td>
@@ -39,6 +35,16 @@ class EventLogs extends React.Component {
 				</tbody>
 		  </table>
 		)
+	}
+
+	fetchData() {
+		fetch("https://zm8ejl2w3m.execute-api.us-east-2.amazonaws.com/latestMinecraftServerEventLogs")
+		.then(res => res.json())
+		.then(res => {
+			this.setState({
+				events: res.events
+			})
+		})
 	}
 
 	getDateString(date) {
