@@ -7,6 +7,7 @@ class EventLogs extends React.Component {
 			events: []
 		}
 	}
+	
 	componentDidMount() {
 		fetch("https://zm8ejl2w3m.execute-api.us-east-2.amazonaws.com/latestMinecraftServerEventLogs")
 			.then(res => res.json())

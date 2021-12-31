@@ -11,9 +11,9 @@ class CurrentPlayers extends React.Component {
 				<tbody>
 					{
 						this.props.players ? (
-							this.props.players.sample.map(player => 
+							this.props.players.map(player => 
 								<tr>
-									<td>{player.name}</td>
+									<td>{player}</td>
 								</tr>
 							)
 						) : (

@@ -10,7 +10,7 @@ class App extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			requestedProvisioning: false
+			title: (Math.random() > 0.5 ? "BI GOOF" : "BIG OOF")
 		}
 	}
 
@@ -19,25 +19,9 @@ class App extends React.Component {
 			.then(res => res.json())
 			.then(res => {
 				this.setState({
-					status: res.status
+					status: res.status,
+					players: res.currentPlayers
 				})
-				if (res.status === "Available") {
-					fetch("https://mcapi.us/server/status?ip=bigoof.net&port=25565")
-						.then(res => res.json())
-						.then(res => {
-							this.setState({
-								players: res.players
-							})
-						})
-				} else {
-					this.setState({
-						players: {
-							now: 0,
-							max: 0,
-							sample: []
-						}
-					})
-				}
 			})
 	}
 
@@ -50,7 +34,7 @@ class App extends React.Component {
 
 							{/* Banner */}
 							<div class="center">
-								<h1>{Math.random() > 0.5 ? "BI GOOF" : "BIG OOF"}</h1>
+								<h1>{this.state.title}</h1>
 									<h6>Minecraft Server Dashboard</h6>
 								<br/>
 							</div>

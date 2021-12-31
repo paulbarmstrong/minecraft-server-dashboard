@@ -20,7 +20,7 @@ class ServerStatus extends React.Component {
 									</div>
 									<div class="col s12">
 										<h6 class="left">Players:</h6>
-										<h6 class="right">{this.props.players.now}/{this.props.players.max}</h6>
+										<h6 class="right">{this.props.players.length}/20</h6>
 									</div>
 									{
 										this.props.status === "Deprovisioned" ? (
