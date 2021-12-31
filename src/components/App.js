@@ -50,7 +50,7 @@ class App extends React.Component {
 
 							{/* Banner */}
 							<div class="center">
-								<h1>BI GOOF</h1>
+								<h1>{Math.random() > 0.5 ? "BI GOOF" : "BIG OOF"}</h1>
 									<h6>Minecraft Server Dashboard</h6>
 								<br/>
 							</div>
