@@ -27,7 +27,7 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div class="App blue-grey darken-4" style={{height: window.screen.height}}>
+			<div class="App blue-grey darken-4">
 				<div class="section white-text">
 					<div class="container">
 						<div class="container blue-grey darken-4">
