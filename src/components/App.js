@@ -68,7 +68,7 @@ class App extends React.Component {
 
 	requestProvisioning() {
 		fetch("https://4wiouuu6gl.execute-api.us-east-2.amazonaws.com/startProvisioningMinecraftServer", {method: "POST"})
-			.then(res => setTimeout(() => this.forceUpdate(), 2000))
+			.then(res => this.fetchData())
 	}
 }
 
