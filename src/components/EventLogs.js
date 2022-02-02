@@ -43,18 +43,12 @@ class EventLogs extends React.Component {
 
 	fetchData() {
 		fetch("https://zm8ejl2w3m.execute-api.us-east-2.amazonaws.com/latestMinecraftServerEventLogs")
+		.then(res => res.json())
 		.then(res => {
-			if (res.status != 200) {
-				throw new Error("Error from API gateway");
-			} else {
-				return res.json()
-			}
-		})
-		.then(body => {
 			this.setState({
-				events: body.events
+				events: res.events
 			})
-		}, err => {})
+		})
 	}
 
 	getDateString(date) {

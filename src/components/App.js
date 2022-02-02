@@ -57,18 +57,13 @@ class App extends React.Component {
 
 	fetchData() {
 		fetch("https://hi2g7g24r4.execute-api.us-east-2.amazonaws.com/minecraftServerStatus")
+		.then(res => res.json())
 		.then(res => {
-			if (res.status != 200) {
-				throw new Error("Error from API gateway");
-			} else {
-				return res.json()
-			}
-		}).then(body => {
 			this.setState({
-				status: body.status,
-				players: body.currentPlayers
+				status: res.status,
+				players: res.currentPlayers
 			})
-		}, err => {})
+		})
 	}
 
 	requestProvisioning() {
