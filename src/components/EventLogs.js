@@ -1,10 +1,10 @@
 import React from 'react';
+import LoadingWheel from './LoadingWheel';
 
 class EventLogs extends React.Component {
 	constructor() {
 		super()
 		this.state = {
-			events: []
 		}
 		this.fetchData = this.fetchData.bind(this)
 	}
@@ -25,11 +25,15 @@ class EventLogs extends React.Component {
 				</thead>
 				<tbody>
 					{
-						this.state.events.map(event => 
-							<tr>
-								<td>{this.getDateString(new Date(event.timestamp))}</td>
-								<td>{event.message}</td>
-							</tr>
+						this.state.events ? (
+							this.state.events.map(event => 
+								<tr>
+									<td>{this.getDateString(new Date(event.timestamp))}</td>
+									<td>{event.message}</td>
+								</tr>
+							)
+						) : (
+							<LoadingWheel/>
 						)
 					}
 				</tbody>
