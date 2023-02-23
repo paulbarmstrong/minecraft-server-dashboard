@@ -56,7 +56,7 @@ class App extends React.Component {
 	}
 
 	fetchData() {
-		fetch("https://hi2g7g24r4.execute-api.us-east-2.amazonaws.com/minecraftServerStatus")
+		fetch("https://das9w7os29.execute-api.us-east-1.amazonaws.com/get-minecraft-server-status")
 		.then(res => {
 			if (res.status != 200) {
 				throw new Error("Error from API gateway");
@@ -72,7 +72,7 @@ class App extends React.Component {
 	}
 
 	requestProvisioning() {
-		fetch("https://4wiouuu6gl.execute-api.us-east-2.amazonaws.com/startProvisioningMinecraftServer", {method: "POST"})
+		fetch("https://das9w7os29.execute-api.us-east-1.amazonaws.com/start-provisioning-minecraft-server", {method: "POST"})
 			.then(res => this.fetchData())
 	}
 }

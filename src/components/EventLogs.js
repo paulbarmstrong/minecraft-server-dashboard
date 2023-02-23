@@ -38,7 +38,7 @@ class EventLogs extends React.Component {
 	}
 
 	fetchData() {
-		fetch("https://zm8ejl2w3m.execute-api.us-east-2.amazonaws.com/latestMinecraftServerEventLogs")
+		fetch("https://das9w7os29.execute-api.us-east-1.amazonaws.com/get-latest-minecraft-server-event-logs")
 		.then(res => {
 			if (res.status != 200) {
 				throw new Error("Error from API gateway");
